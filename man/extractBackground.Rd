@@ -44,5 +44,24 @@ Jacob M. Wozniak (jakewozniak@gmail.com)
 }
 
 \examples{
+# Locate example files
+examples.path = system.file("extdata", package = "PTMphinder")
+parsed_ref.path = paste(examples.path, "/Human_Uniprot_Parsed_Example.txt", sep="")
 
+# Read in parsed Uniprot database example (or one you created with parseDB above)
+parsed_ref <- read.table(parsed_ref.path, header=FALSE, row.names=NULL, sep="\t")
+
+# Set parameters for extractBackground (s - sequence list; c - central character; w - width of motifs)
+s <- unlist(parsed_ref[,2])
+c <- "S"
+w <- 15
+
+# Extract proteome-specific background motifs (may take a while depending on database size)
+extractBack_Example <- extractBackground(s, c, w)
+
+# Create file name for background motif list
+fileName2 <- paste(examples.path, "/Background_", c, "_" ,w, "_", Sys.Date(), ".txt", sep="")
+
+# Write background motif list to new file (will be found in the PTMphinder/extdata/ directory within R.framework)
+write.table(extractBack_Example, fileName2, row.names=FALSE, col.names=FALSE, quote=FALSE)
 }

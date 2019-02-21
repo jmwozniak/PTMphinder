@@ -44,5 +44,19 @@ Jacob M. Wozniak (jakewozniak@gmail.com)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
+# Locate example files
+examples.path = system.file("/extdata", package = "PTMphinder")
+uniprot_ref.path = paste(examples.path, "/Human_Uniprot_Example.txt", sep="")
 
+# Read in proteome database example (or your own database)
+uniprot_ref = readLines(uniprot_ref.path)
+
+# Parse proteome database into 2 columns: protein accession and protein sequence (may take a while depending on database size)
+parseDB_Example <- parseDB(uniprot_ref, "UP", FALSE)
+
+# Create file name for parsed database
+filename1 <- paste(examples.path, "/Human_Uniprot_Parsed_", Sys.Date(), ".txt", sep="")
+
+# Write parsed  database to new file (will be found in the PTMphinder/extdata/ directory within R.framework)
+write.table(parseDB_Example, filename1, row.names=FALSE, col.names=FALSE, sep="\t")
 }

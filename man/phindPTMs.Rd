@@ -71,6 +71,24 @@ Jacob M. Wozniak (jakewozniak@gmail.com)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
+# Locate example files
+examples.path = system.file("extdata", package = "PTMphinder")
+ptm_data.path = paste(examples.path, "/phindPTMs_Input_Example.csv", sep="")
+parsed_ref.path = paste(examples.path, "/Human_Uniprot_Parsed_Example.txt", sep="")
 
+# Read in proteomic data example (or your own data)
+ptm_data <- read.csv(ptm_data.path, header=TRUE, row.names = NULL, stringsAsFactors = FALSE)
+
+# Read in parsed Uniprot database example (or one you created with parseDB above)
+parsed_ref <- read.table(parsed_ref.path, header=FALSE, row.names=NULL, sep="\t")
+
+# Locate PTMs within full-length proteins and extract neighboring motifs
+phindPTMs_Example <- phindPTMs(ptm_data, parsed_ref)
+
+# Create file name for phindPTMs output
+fileName3 <- paste(examples.path, "/PTMs_phound_", Sys.Date(), ".txt", sep="")
+
+# Write phindPTMs output to new file (will be found in the PTMphinder/extdata/ directory within R.framework)
+write.table(phindPTMs_Example, fileName3, row.names=FALSE, append = FALSE,  sep = "\t")
 }
 
