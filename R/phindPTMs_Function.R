@@ -53,11 +53,11 @@ phindPTMs <- function(data, reftab){
   }
 
   #Create table with ProteinID, Unique Identifier, PTM Loc(s) on Peptide, PTM Loc(s) on Protein, PTM scores, flanking sequences, ambiguity of PTM, and full protein sequence
-  writelist<- c(as.character(protIDs), as.character(data$Identifier), as.character(ptmLocs), as.character(newLocList), as.character(ptmScore), as.character(flankList),  as.character(ambiguity), as.character(fullProt))
+  writelist<- c(as.character(data$Identifier), as.character(protIDs), as.character(ptmLocs), as.character(newLocList), as.character(ptmScore), as.character(flankList),  as.character(ambiguity), as.character(fullProt))
   writetab <- matrix(writelist,ncol=8,byrow=FALSE)
 
   #Name the columns of the table
-  colnames(writetab) <- c("Protein_ID", "Identifier", "Pep_Loc",  "Prot_Loc", "Score", "Flank_Seq", "Ambiguity", "Prot_Seq")
+  colnames(writetab) <- c("Identifier", "Protein_ID", "Pep_Loc",  "Prot_Loc", "PTM_Score", "Flank_Seq", "Ambiguity", "Prot_Seq")
 
   return(writetab)
 }
