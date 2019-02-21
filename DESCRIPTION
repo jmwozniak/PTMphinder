@@ -1,0 +1,10 @@
+Package: PTMphinder
+Type: Package
+Title: An R package for PTM localization and motif extraction from proteomic datasets
+Version: 0.1.0
+Author: Jacob M. Wozniak
+Maintainer: Jacob M. Wozniak <jakewozniak@gmail.com>
+Description: The R package, PTMphinder, was designed to facilitate the in-depth analysis of proteomic data by researchers, even those with little programming background. The package contains three functions: parseDB, phindPTMs and extractBackground. Together, these functions allow users to reformat “.fasta” databases for easier analysis, localize the PTMs within full proteins, extract motifs surrounding identified PTMs and create proteome-specific motif backgrounds for statistical purposes. 
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
