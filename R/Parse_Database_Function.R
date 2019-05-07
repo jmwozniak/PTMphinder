@@ -1,3 +1,24 @@
+#####################################################################################
+#                                                                                   #
+#         Copyright (C) 2019 Jacob M. Wozniak                                       #
+#                                                                                   #
+#         This file is part of the PTMphinder R package.                            #
+#                                                                                   #
+#         PTMphinder is free software: you can redistribute it and/or modify        #
+#         it under the terms of the GNU General Public License as published by      #
+#         the Free Software Foundation, either version 3 of the License, or         #
+#         any later version.                                                        #
+#                                                                                   #
+#         PTMphinder is distributed in the hope that it will be useful,             #
+#         but WITHOUT ANY WARRANTY; without even the implied warranty of            #
+#         MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             #
+#         GNU General Public License for more details.                              #
+#                                                                                   #
+#         You should have received a copy of the GNU General Public License         #
+#         along with PTMphinder. If not, see <https://www.gnu.org/licenses/>.       #
+#                                                                                   #
+#####################################################################################
+
 parseDB <- function(ref, db_source, filt){
   #Count number of sequences in .fasta database
   numSeqs <- sum(substr(ref, 0, 1) == ">")
